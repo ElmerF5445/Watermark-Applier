@@ -1,0 +1,1083 @@
+<html>
+
+<head id="pageElement_Head">
+	<title id="pageElement_PageTitle">
+		App by ElmerF
+	</title>
+
+	<style>
+
+	</style>
+	<link rel="stylesheet" href="Scripts/App_Stylesheet_ELMSUI.css">
+	<link rel="stylesheet" href="Scripts/App_Stylesheet_Debugging.css">
+	<!-- <link rel="stylesheet" href="Scripts/DL_Stylesheet.css"> -->
+	<link rel="stylesheet" href="Scripts/App_Stylesheet_Animations.css">
+	<link rel="stylesheet" href="Scripts/App_Stylesheet_Reference.css">
+	<link rel="stylesheet" href="Scripts/WA_Stylesheet.css">
+	<link rel="icon" type="image/png" href="Assets/Icons/favicon_old.png" sizes="96x96" id="pageElement_favicon">
+	<!-- Default intended fonts -->
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&family=Roboto&display=swap"
+		rel="stylesheet"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+</head>
+
+<body class="MainPage">
+	<script src="Scripts/App_Javascript_Debugging.js"></script>
+	<script src="Scripts/App_Javascript_Properties.js"></script>
+	<script src="Scripts/App_Javascript_KeyboardControls.js"></script>
+	<script src="Scripts/App_Javascript_Extras.js"></script>
+	<script src="Scripts/App_Javascript_UI.js"></script>
+	<!-- <script src="Scripts/WA_DomToImage/dom-to-image.js"></script> -->
+	<script src="/node_modules/dom-to-image/dist/dom-to-image.min.js"></script>
+	<script src="Scripts/WA_DomToImage/FileSaver.js"></script>
+	<script src="Scripts/WA_Javascript.js"></script>
+	<!-- <script src="Scripts/App_Javascript_ProfileSystem.js"></script> -->
+	<!-- <script src="Scripts/DL_Javascript.js"></script> -->
+	<div class="LoginScreen" id="pageElement_Login_Screen">
+		<div class="LoginScreen_Main">
+			<div class="LoginScreen_Main_ProfileSelector" id="pageElement_Login_Page_ProfileSelector">
+				<h1 class="LoginScreen_Main_ProfileSelector_Title">
+					Welcome back
+				</h1>
+				<p class="LoginScreen_Main_ProfileSelector_Description">
+					Select a profile below to start.
+				</p>
+				<div class="LoginScreen_Main_ProfileSelector_List" id="pageElement_Login_ProfileList">
+					<div class="LoginScreen_Main_ProfileSelector_List_Item" onclick="LoginScreen_SwitchToPage('Authentication'), Profiles_LogIn_SelectUser(this.dataset.id)" data-id="Default 1">
+						<img class="LoginScreen_Main_ProfileSelector_List_Item_Icon" src="Assets/Profile_Pictures/default1.png"/>
+						<h3 class="LoginScreen_Main_ProfileSelector_List_Item_Name">
+							Default 1
+						</h3>
+					</div>					
+				</div>
+				<p class="LoginScreen_Main_ProfileSelector_AddAccount">
+					Add profile
+				</p>
+			</div>
+			<div class="LoginScreen_Main_ProfileLogin" id="pageElement_Login_Page_Authentication" style="display: none">
+				<div class="LoginScreen_Main_ProfileLogin_Back" onclick="LoginScreen_SwitchToPage('ProfileSelector')">
+					<img class="LoginScreen_Main_ProfileLogin_Back_Icon" src="Assets/Icons/icon_leftArrow.png"/>
+					<p class="LoginScreen_Main_ProfileLogin_Back_Text">
+						Back
+					</p>
+				</div>
+				<div></div>
+				<img class="LoginScreen_Main_ProfileLogin_Icon" src="Assets/Profile_Pictures/default1.png"/>
+				<h2 class="LoginScreen_Main_ProfileLogin_Name" id="LoginScreen_Main_ProfileLogin_Name">
+					Default 1
+				</h2>
+				<input type="password" class="Input_Text" placeholder="Password" id="LoginScreen_Main_ProfileLogin_PasswordField"/>
+				<div class="General_Button">
+					Enter
+				</div>
+				<div> </div>
+			</div>
+		</div>
+		<div class="LoginScreen_CopyrightSection" id="LoginScreen_CopyrightSection">
+			<div style="display: flex; justify-content: center; align-items: center;">
+				<img class="LoginScreen_Copyright_Logo" src="Assets/Icons/ContentByElmerF.png"/>
+				<h4 class="LoginScreen_Copyright" id="copyrightTitle">
+					Content By ElmerF
+				</h4>
+			</div>
+		</div>
+	</div>
+	<div class="LoadingScreen" id="pageElement_LoadingScreen">
+		<div class="LoadingScreen_UpperSection" id="LoadingScreen_UpperSection" style="display: none">
+			<img class="LoadingScreen_Icon" src="Assets/Icons/favicon_old.png" id="LoadingScreen_Icon"/>
+			<h1 class="LoadingScreen_VersionTitle" id="versionTitle">
+				App by ElmerF
+			</h1>
+			<div class="lds-ellipsis">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			
+		</div>
+		<div class="LoadingScreen_Splash" id="LoadingScreen_Splash">
+			<div class="LoadingScreen_Splash_Icon">
+				<img class="LoadingScreen_Splash_Icon_Icon" src="Assets/Icons/favicon.png"/>
+				<p class="LoadingScreen_Splash_Icon_Version" id="LoadingScreen_Splash_App_Version">
+					1.16
+				</p>
+			</div>
+			<div class="LoadingScreen_Splash_Background"></div>
+			<div class="LoadingScreen_Splash_Title">
+				<h1 class="LoadingScreen_Splash_Title_Text" id="LoadingScreen_Splash_App_Title">
+					App By ElmerF
+				</h1>
+				<div class="LoadingScreen_Splash_Title_Loader">
+					<div class="LoadingScreen_Splash_Title_Loader_Loader"></div>
+				</div>
+			</div>
+			<div class="LoadingScreen_Splash_Fade"></div>
+		</div>
+		
+		<div class="LoadingScreen_CopyrightSection" id="LoadingScreen_CopyrightSection">
+			<div style="display: flex; justify-content: center; align-items: center;">
+				<img class="LoadingScreen_Copyright_Logo" src="Assets/Icons/ContentByElmerF.png"/>
+				<h4 class="LoadingScreen_Copyright" id="copyrightTitle">
+					Content By ElmerF
+				</h4>
+			</div>
+		</div>
+	</div>
+	<div class="ClockScreen" id="pageElement_ClockScreen" onclick="ClockScreen_Close()">
+		<h1 class="ClockScreen_Time" id="Clock_Time_ClockScreen">
+
+		</h1>
+		<h3 class="ClockScreen_Date" id="Clock_Date_ClockScreen">
+
+		</h3>
+		<p class="ClockScreen_Instruction">
+			Click anywhere to start
+		</p>
+		<div class="ClockScreen_Copyright">
+			<p class="ClockScreen_Copyright_Text" id="pageElement_ClockScreen_Copyright">
+				Content by ElmerF 2023
+			</p>
+		</div>
+	</div>
+	<div class="Page_Blur" id="pageElement_BlurBG">
+		d
+	</div>
+	<div class="Page_Subwindows" id="pageElement_Subwindows">
+		<div class="Subwindow" id="subwindow_Projects_CreateProject">
+			<div class="Subwindow_Titlebar">
+				<h2 class="Subwindow_TitleBar_Title">
+					Name Project
+				</h2>
+				<img class="Subwindow_Titlebar_Close" src="Assets/Icons/icon_close.png"
+					onclick="close_Subwindow('Projects_CreateProject')">
+			</div>
+			<div class="Subwindow_Content">
+				<p class="General_Paragraph">
+					Create a project name.
+				</p>
+				<input type="text" class="Input_Text" placeholder="Project name" value="WA_UntitledProject" id="WA_Projects_ProjectName_Input" oninput="WA_Projects_CheckFileAvailability('NewProject')"/>
+				<p class="General_Paragraph" id="WA_Projects_ProjectName_CreateProject_Info_FileAlreadyExists">
+					A project already exists with that name.
+				</p>
+				<p class="General_Paragraph">
+					This will clear your current progress. If you want to save your progress for later, save your project now before continuing.
+				</p>
+				<p class="General_Paragraph">
+					This will become the prefix of the file names of the images you can download later. To save the progress of your project for later, click "Save project" in the page selection.
+				</p>
+			</div>
+			<div class="Subwindow_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction" onclick="close_Subwindow('Projects_CreateProject')">
+					Cancel
+				</div>
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick="close_Subwindow('Projects_CreateProject'), WA_Projects_Save_ProjectName(), Tabs_ChangeTab('FilterImages')">
+					Create Project
+				</div>
+			</div>
+		</div>
+		<div class="Modal" id="subwindow_Projects_EditProjectName">
+			<div class="Modal_TitleBar">
+				<h2 class="Modal_TitleBar_Title">
+					Edit project name
+				</h2>
+			</div>
+			<div class="Modal_Content">
+				<input type="text" class="Input_Text" placeholder="Project name here" style="margin-top: 10px;" id="WA_Projects_ProjectName_EditProjectName_Input" value="WA_UntitledProject" oninput="WA_Projects_CheckFileAvailability('EditProject')"/>
+				<p class="General_Paragraph" id="WA_Projects_ProjectName_EditProjectName_Info_FileAlreadyExists">
+					A project already exists with that name. Clicking "Save" now will overwrite the data stored in it.
+				</p>
+				<p class="General_Paragraph" id="WA_Projects_ProjectName_EditProjectName_Info_SameProjectName">
+					That's the same project name!
+				</p>
+				<p class="General_Paragraph">
+					Type a new name for your project. This will also save your progress.
+				</p>
+			</div>
+			<div class="Modal_Content_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction" onclick="Subwindows_Close('Projects_EditProjectName')">
+					Cancel
+				</div>
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick=" Subwindows_Close('Projects_EditProjectName'), WA_Projects_Edit_ProjectName()">
+					Save
+				</div>
+			</div>
+		</div>
+		<div class="Modal" id="subwindow_Projects_SaveProject">
+			<div class="Modal_TitleBar">
+				<h2 class="Modal_TitleBar_Title">
+					Save Project
+				</h2>
+			</div>
+			<div class="Modal_Content">
+				<input type="text" class="Input_Text" placeholder="Project name here" style="margin-top: 10px;" id="WA_Projects_ProjectName_SaveProject_Input" value="WA_UntitledProject" oninput="WA_Projects_CheckFileAvailability('SaveProject')"/>
+				<p class="General_Paragraph" id="WA_Projects_ProjectName_SaveProject_Info_FileAlreadyExists">
+					A project already exists with that name. Clicking "Save" now will overwrite the data stored in it.
+				</p>
+				<p class="General_Paragraph">
+					The list of file names will be saved into your browser's local storage. The images itselves will not be saved.
+				</p>
+			</div>
+			<div class="Modal_Content_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction" onclick="Subwindows_Close('Projects_SaveProject')">
+					Cancel
+				</div>
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick=" Subwindows_Close('Projects_SaveProject'), WA_Projects_Save_Project()">
+					Save
+				</div>
+			</div>
+		</div>
+		<div class="Subwindow" id="subwindow_ImportImageList" style="min-width: 1000px">
+			<div class="Subwindow_Titlebar">
+				<h2 class="Subwindow_TitleBar_Title">
+					Import Image List
+				</h2>
+				<img class="Subwindow_Titlebar_Close" src="Assets/Icons/icon_close.png"
+					onclick="close_Subwindow('ImportImageList')">
+			</div>
+			<div class="Subwindow_Content" style="display: grid; grid-template-columns: 1fr 250px; grid-gap: 5px;">
+				<div>
+					<h3 class="WA_ApplyWatermark_Title" style="padding: 0; padding-bottom: 10px;">
+						Input links
+					</h3>
+					<p class="General_Paragraph" style="margin-top: 0;">
+						Copy and paste the list of image file names in the input field below.
+					</p>
+					<p class="General_Paragraph">
+						Your actual images must be inside Assets/Images.
+					</p>
+					<textarea type="text" class="Input_Text_Long" placeholder="Paste file path / file names here" id="WA_ImportImages_ImageList_Input"></textarea>
+					<p class="General_Paragraph">
+						Each item must be separated by spaces and must include the file extension (e.g. .png and .jpg). Full file paths can also be entered.
+					</p>
+					<div class="photo-grid" id="photo-grid"></div>
+				</div>
+				<div>
+					<h3 class="WA_ApplyWatermark_Title" style="padding: 0; padding-bottom: 10px;">
+						Import settings
+					</h3>
+					<div class="Radio" id="WA_FilterImages_ImageList_Settings_ImportSettings" Radio_ActiveButton="ImportSettings_LoadImagesAllAtOnce">
+						<div class="Radio_Button" id="ImportSettings_LoadImagesByBatches" onclick="Radio_Select(this.id), WA_ImportImages_ChangeLoadSettings()" State="Inactive">
+							<div class="Radio_Button_Indicator"></div>
+							Load images by batches
+						</div>
+						<div class="Radio_Button" id="ImportSettings_LoadImagesAllAtOnce" onclick="Radio_Select(this.id), WA_ImportImages_ChangeLoadSettings()" State="Active">
+							<div class="Radio_Button_Indicator"></div>
+							Load images all at once
+						</div>
+					</div>
+					<!-- <div class="Toggle WA_ApplyWatermark_Settings_Input_Toggle" id="WA_FilterImages_ImageList_Settings_LoadAllAtOnce_Input" onclick="toggle_Button(this.id), WA_ImportImages_ChangeLoadSettings()" style="margin-left: 0;">
+						<div class="Toggle_Indicator" data-id="Toggle_Activated"></div>
+						Load images by batches at a time
+					</div>
+					<div class="Toggle WA_ApplyWatermark_Settings_Input_Toggle" id="WA_FilterImages_ImageList_Settings_LoadAllAtOnce_Input" onclick="toggle_Button(this.id), WA_ImportImages_ChangeLoadSettings()" style="margin-left: 0;">
+						<div class="Toggle_Indicator" data-id="Toggle_Activated"></div>
+						Load all images at once
+					</div> -->
+					<h3 class="WA_ApplyWatermark_Settings_Title" style="padding: 0; padding-bottom: 10px;">
+						List type
+					</h3>
+					<div class="Radio" id="WA_FilterImages_ImageList_Settings_ListType" Radio_ActiveButton="ListType_FilePaths">
+						<div class="Radio_Button" id="ListType_FileNames" onclick="Radio_Select(this.id)" State="Inactive">
+							<div class="Radio_Button_Indicator"></div>
+							File names
+						</div>
+						<div class="Radio_Button" id="ListType_FilePaths" onclick="Radio_Select(this.id)" State="Active">
+							<div class="Radio_Button_Indicator"></div>
+							File paths
+						</div>
+						<div class="Radio_Button" id="ListType_GDriveLinks" onclick="Radio_Select(this.id)" State="Inactive">
+							<div class="Radio_Button_Indicator"></div>
+							Google Drive links
+						</div>
+						<div class="Radio_Button" id="ListType_FileUpload" onclick="Radio_Select(this.id)" State="Inactive">
+							<div class="Radio_Button_Indicator"></div>
+							Uploaded files (click button below)
+						</div>
+					</div>
+					<input type="file" id="file-input" multiple accept="image/*" onchange="loadImages()" class="General_Button">
+						Upload images
+					</input>
+					<!-- <div class="Toggle WA_ApplyWatermark_Settings_Input_Toggle" id="WA_FilterImages_ImageList_Settings_UsingFilePaths_Input" onclick="toggle_Button(this.id)" style="margin-left: 0;">
+						<div class="Toggle_Indicator" data-id="Toggle_Activated"></div>
+						File names
+					</div>
+					<div class="Toggle WA_ApplyWatermark_Settings_Input_Toggle" id="WA_FilterImages_ImageList_Settings_UsingFilePaths_Input" onclick="toggle_Button(this.id)" style="margin-left: 0;">
+						<div class="Toggle_Indicator" data-id="Toggle_Activated"></div>
+						File paths
+					</div>
+					<div class="Toggle WA_ApplyWatermark_Settings_Input_Toggle" id="WA_FilterImages_ImageList_Settings_UsingRawGDriveLinks_Input" onclick="toggle_Button(this.id)" style="margin-left: 0;">
+						<div class="Toggle_Indicator" data-id="Toggle_Activated"></div>
+						Google Drive links
+					</div> -->
+				</div>
+			</div>
+			<div class="Subwindow_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction" onclick="close_Subwindow('ImportImageList')">
+					Cancel
+				</div>
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick=" WA_ImportImages_ExtractFileNames(), Subwindows_Close('ImportImageList')">
+					Import images
+				</div>
+			</div>
+		</div>
+		<div class="Modal" id="subwindow_WA_Confirm_RemoveUnfiltered">
+			<div class="Modal_TitleBar">
+				<h2 class="Modal_TitleBar_Title">
+					Remove unfiltered images?
+				</h2>
+			</div>
+			<div class="Modal_Content">
+				<p class="General_Paragraph">
+					Click "Remove" to remove all images that are not included in the filtered images list. This does not delete the actual files on the Images folder.
+				</p>
+			</div>
+			<div class="Modal_Content_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction" onclick="Subwindows_Close('WA_Confirm_RemoveUnfiltered')">
+					Cancel
+				</div>
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick="WA_FilterImages_RemoveUnfilteredItems(), Subwindows_Close('WA_Confirm_RemoveUnfiltered')">
+					Remove
+				</div>
+			</div>
+		</div>
+		<div class="Subwindow" id="subwindow_ChangeImage">
+			<div class="Subwindow_Titlebar">
+				<h2 class="Subwindow_TitleBar_Title">
+					Change image
+				</h2>
+				<img class="Subwindow_Titlebar_Close" src="Assets/Icons/icon_close.png"
+					onclick="close_Subwindow('ChangeImage')">
+			</div>
+			<div class="Subwindow_Content">
+				<p class="General_Paragraph">
+					Copy and paste the file name of the image you want to import.
+				</p>
+				<input type="text" class="Input_Text" placeholder="Paste file name here" id="WA_Change_Image_Input"></input>
+				<p class="General_Paragraph" style="margin-bottom: 0;">
+					The file name must contain the file extension (.png, .jpg, etc.) and must be inside Assets/Images. 
+				</p>
+				<p class="General_Paragraph">
+					For multiple images, go to "Filter Images" and click "Import image list" and return back in this tab.
+				</p>
+			</div>
+			<div class="Subwindow_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction" onclick="close_Subwindow('ChangeImage')">
+					Cancel
+				</div>
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick=" WA_ApplyWatermark_Change_Image(), Subwindows_Close('ChangeImage')">
+					Apply change
+				</div>
+			</div>
+		</div>
+		<div class="Subwindow" id="subwindow_ChangeWatermark">
+			<div class="Subwindow_Titlebar">
+				<h2 class="Subwindow_TitleBar_Title">
+					Change watermark
+				</h2>
+				<img class="Subwindow_Titlebar_Close" src="Assets/Icons/icon_close.png"
+					onclick="close_Subwindow('ChangeWatermark')">
+			</div>
+			<div class="Subwindow_Content">
+				<p class="General_Paragraph">
+					Copy and paste the file name of the image you want to import.
+				</p>
+				<input type="file" id="file-input2" multiple accept="image/*" onchange="loadWatermarks()" class="General_Button">
+					Upload image
+				</input>
+				<input type="text" class="Input_Text" placeholder="Paste file name here" id="WA_Change_Watermark_Input"></input>
+				<p class="General_Paragraph" style="margin-bottom: 0;">
+					The file name must contain the file extension (.png, .jpg, etc.) and must be inside Assets/Watermarks. 
+				</p>
+				<p class="General_Paragraph">
+					For multiple images, go to "Filter Images" and click "Import image list" and return back in this tab.
+				</p>
+				
+			</div>
+			<div class="Subwindow_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction" onclick="close_Subwindow('ChangeWatermark')">
+					Cancel
+				</div>
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick=" WA_ApplyWatermark_Change_Watermark(), Subwindows_Close('ChangeWatermark')">
+					Apply change
+				</div>
+			</div>
+		</div>
+		<div class="Subwindow" id="subwindow_BatchProcessing_Ongoing">
+			<div class="Subwindow_Titlebar">
+				<h2 class="Subwindow_TitleBar_Title">
+					Batch Processing in progress
+				</h2>
+				<!-- <img class="Subwindow_Titlebar_Close" src="Assets/Icons/icon_close.png"
+					onclick="close_Subwindow('BatchProcessing_Ongoing')"> -->
+			</div>
+			<div class="Subwindow_Content">
+				<p class="General_Paragraph">
+					Please wait until the system finishes processing your images.
+				</p>
+				<div class="WA_BatchProcessing_Progress">
+					<p class="WA_BatchProcessing_Progress_Text" id="WA_BatchProcessing_Progress_Text">
+						1 / 50 images finished (0%)
+					</p>
+					<div class="WA_BatchProcessing_Progress_Bar" id="WA_BatchProcessing_Progress_Bar"></div>
+				</div>
+				<p class="General_Paragraph" style="margin-bottom: 0;">
+					Keep this tab open. Please allow multiple downloads as well (if you have "Download Output Image" enabled in the settings).
+				</p>
+				<p class="General_Paragraph">
+					Depending on the image quality, output resolution, and the amount of images, this may take a while.
+				</p>
+			</div>
+			<div class="Subwindow_Bottom">
+				<div class="Subwindow_Bottom_Button_SecondaryAction" onclick="WA_BatchProcessing_CompleteJob()">
+					Cancel
+				</div>
+				<!-- <div class="Subwindow_Bottom_Button_PrimaryAction" onclick=" WA_ApplyWatermark_Change_Watermark(), Subwindows_Close('ChangeWatermark')">
+					Apply change
+				</div> -->
+			</div>
+		</div>
+		<div class="Modal" id="subwindow_BatchProcessing_Complete">
+			<div class="Modal_TitleBar">
+				<h2 class="Modal_TitleBar_Title">
+					Complete
+				</h2>
+			</div>
+			<div class="Modal_Content">
+				<p class="General_Paragraph" id="WA_BatchProcessing_Completion_Text">
+					All 50 images have been processed successfully.
+				</p>
+			</div>
+			<div class="Modal_Content_Bottom">
+				<div class="Subwindow_Bottom_Button_PrimaryAction" onclick="Subwindows_Close('BatchProcessing_Complete')">
+					Close
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="ToastNotif" id="pageElement_ToastDrawer">
+	</div>
+	<div class="Page_Overlays">
+		<div class="Debugger_Console" id="pageElement_Debugger_Console" style="display: none">
+			<div class="Debugger_Console_Results" id="pageElement_Debugger_Console_Text"></div>
+			<div class="Debugger_Console_CommandEntry">
+				<input class="Debugger_Console_CommandEntry_Input" id="pageElement_Debugger_Console_CommandEntry_Input"
+					placeholder="Enter console command and press Enter"/>
+			</div>
+		</div>
+		<div class="TargetArea_CornerButtons">
+			<div class="CornerButtons" id="pageElement_CornerButtons">
+				<img src="Assets/Icons/icon_downArrow.png" class="CornerButtons_Button"
+					onclick="scrollToPosition('bottom')"/>
+				<img src="Assets/Icons/icon_upArrow.png" class="CornerButtons_Button"
+					onclick="scrollToPosition('top')"/>
+			</div>
+		</div>
+		<div class="Header_MainMenu_Container" style="display: none" id="pageElement_Header_MainMenu_Textbox">
+			<div id="pageElement_Header_MainMenu_Textbox_Content" style="opacity: 0%">
+				<div class="Header_MainMenu_PageName" id="Header_MainMenu_PageName">
+					<img class="Header_MainMenu_PageName_Icon" src="Assets/Icons/favicon.png"
+						id="Header_MainMenu_PageName_Icon"/>
+					<h4 class="Header_MainMenu_PageName_Text" id="Header_MainMenu_PageName_Text">
+						Template
+					</h4>
+				</div>
+				<a href="DL_ProfileScreen.html">
+					<div class="Header_MainMenu_Profile" id="pageElement_Header_MainMenu_ProfileButton">
+						<img class="Header_MainMenu_Profile_Image" src="Assets/Icons/icon_user.png"
+							id="MainMenu_Profile_Image"/>
+						<h3 class="Header_MainMenu_Profile_Name" id="MainMenu_Profile_Name">
+							Jemma Regalados
+						</h3>
+					</div>
+				</a>
+				<!-- <div class="Header_MainMenu_SearchBar">
+						<input type="text" class="Header_MainMenu_SearchBar_Input"/>
+						<img class="Header_MainMenu_SearchBar_Button" src="Assets/Icons/icon_search.png"/>
+					</div> -->
+				<h3 class="Header_MainMenu_Title" id="pageElement_Header_MainMenu_Textbox_Content_PageName">
+					Doodle Launcher
+				</h3>
+				<div class="Header_MainMenu_Navigation" id="pageElement_MainMenu_NavigationList">
+					<!-- <a>
+							<div class="Header_MainMenu_Navigation_Item">
+							<img class="Header_MainMenu_Navigation_Item_Icon" src="Assets/Icons/favicon_old.png"/>
+							<p class="Header_MainMenu_Navigation_Item_Text">
+							Home
+							</p>
+							</div>
+						</a> -->
+				</div>
+				<h3 class="Header_MainMenu_Title">
+					Page Actions
+				</h3>
+				<div class="Header_MainMenu_Navigation" id="pageElement_PageActionsList">
+					<div class="Header_MainMenu_Navigation_Item" onclick="document.documentElement.requestFullscreen()">
+						<img class="Header_MainMenu_Navigation_Item_Icon" src="Assets/Icons/icon_expand.png"/>
+						<p class="Header_MainMenu_Navigation_Item_Text">
+							Enter fullscreen
+						</p>
+					</div>
+					<div class="Header_MainMenu_Navigation_Item" onclick="Subwindows_Open('Projects_CreateProject'), WA_Projects_CheckFileAvailability('NewProject')">
+						<img class="Header_MainMenu_Navigation_Item_Icon" src="Assets/Icons/icon_project_new.png"/>
+						<p class="Header_MainMenu_Navigation_Item_Text">
+							Create new project
+						</p>
+					</div>
+					<div class="Header_MainMenu_Navigation_Item" onclick="Subwindows_Open('Projects_EditProjectName'), WA_Projects_CheckFileAvailability('EditProject')" id="Header_MainMenu_Navigation_Item_Projects_EditProjectName" style="display: none;"> 
+						<img class="Header_MainMenu_Navigation_Item_Icon" src="Assets/Icons/icon_project_edit.png"/>
+						<p class="Header_MainMenu_Navigation_Item_Text">
+							Edit project name
+						</p>
+					</div>
+					<div class="Header_MainMenu_Navigation_Item" onclick="Subwindows_Open('Projects_SaveProject'), WA_Projects_CheckFileAvailability('SaveProject')" id="Header_MainMenu_Navigation_Item_Projects_SaveProject" style="display: none;">
+						<img class="Header_MainMenu_Navigation_Item_Icon" src="Assets/Icons/icon_project_save.png"/>
+						<p class="Header_MainMenu_Navigation_Item_Text">
+							Save project
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="Header_StatusMenu_Container" id="pageElement_Header_StatusTray_Textbox" style="display: none">
+			<div id="pageElement_Header_StatusTray_Textbox_Content" style="opacity: 0%">
+				<div class="Header_StatusMenu_Clock" id="StatusMenu_Clock">
+					<h1 class="Header_StatusMenu_Clock_Time" id="StatusMenu_Clock_Time">
+						12:30 AM
+					</h1>
+					<p class="Header_StatusMenu_Clock_Date" id="StatusMenu_Clock_Date_2">
+						Tuesday, December 06, 2022
+					</p>
+				</div>
+				<div class="Header_StatusMenu_Internet" id="StatusMenu_Internet">
+					<h3 class="Header_StatusMenu_Internet_Status" id="textboxElement_Wifi">
+						Connected
+					</h3>
+					<p class="Header_StatusMenu_Internet_Status_Description" id="pageElement_Connection">
+						You are connected to the internet. The launcher will function as intended and shortcuts will
+						open properly.
+					</p>
+					<a href="https://fast.com/" target="_blank" id="pageElement_Connection_Speedtest">
+						<div class="Header_MainMenu_Navigation_Item">
+							<img class="Header_MainMenu_Navigation_Item_Icon" src="Assets/Icons/favicon_old.png"/>
+							<p class="Header_MainMenu_Navigation_Item_Text">
+								Speedtest
+							</p>
+						</div>
+					</a>
+				</div>
+				<div class="Header_StatusMenu_Battery" id="StatusMenu_Battery">
+					<h1 class="Header_StatusMenu_Battery_Percent" id="StatusMenu_Battery_Level">
+						50.3%
+					</h1>
+					<p class="Header_StatusMenu_Battery_Description" id="StatusMenu_Battery_TimeRemaining">
+						Estimated 54 minutes remaining
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="ToggleableSearchBar" id="pageElement_Toggleable_SearchBar" style="display: none">
+			<div class="ToggleableSearchBar_SearchBar">
+				<input class="ToggleableSearchBar_SearchBar_Input" placeholder="Internet search"
+					id="pageElement_SearchQuery_3"
+					onkeydown="if (event.keyCode == 13) {search_Query('toggleable')}"/>
+				<img src="Assets/Icons/icon_search.png" class="ToggleableSearchBar_SearchBar_Search" id="toggleable"
+					onclick="search_Query(this.id)" onsubmit="search_Query(this.id)"/>
+			</div>
+			<img src="Assets/Icons/icon_close.png" class="ToggleableSearchBar_Close" onclick="toggle_SearchBar()"/>
+		</div>
+	</div>
+	<header class="Page_Header" id="pageElement_Header">
+		<img class="Sidebar_CategoryNavigation_Toggle" id="pageElement_Header_SidebarToggle"
+			src="Assets/Icons/icon_hamburgermenu.png" onclick="toggle_Sidebar()"/>
+		<div class="Header_PageNavi" id="pageElement_Header_MainMenu" onclick="trigger_toggle_Textbox(this.id)">
+			<img src="Assets/Icons/favicon.png" class="Header_PageNavi_Icon" id="Header_PageIcon"/>
+			<h2 class="Header_PageNavi_Title" id="Header_PageNavi_Title">
+				Home
+			</h2>
+		</div>
+		<div class="Header_Content" id="pageElement_Header_Actions" data-id="Header_Center_Content">
+			<!-- <div class="Header_Content_Button" onclick="trigger_createToast('success')">
+					<img class="Header_Content_Button_Icon" src="Assets/Icons/favicon_old.png"/>
+					<h3 class="Header_Content_Button_Text">
+						Button 1
+					</h3>
+				</div>
+				<div class="Header_Content_Button">
+					<img class="Header_Content_Button_Icon" src="Assets/Icons/favicon_old.png"/>
+					<h3 class="Header_Content_Button_Text">
+						Button 2
+					</h3>
+				</div> -->
+				<h3 class="Header_Content_Title" id="pageElement_Header_Title">
+					Tab name
+				</h3>
+		</div>
+		<div class="Header_StatusTray" onclick="trigger_toggle_Textbox(this.id)" id="pageElement_Header_StatusTray">
+			<div class="Header_Clock" id="pageElement_Header_Clock">
+				<h1 class="Header_Clock_Time" id="Clock_Time">
+					id="Clock_Time"
+				</h1>
+				<h1 class="Header_Clock_Date" id="Clock_Date">
+					id="Clock_Date"
+				</h1>
+			</div>
+			<div class="Header_Battery" id="pageElement_Header_Battery">
+				<h1 class="Header_Battery" id="Battery_Level">
+					%
+				</h1>
+			</div>
+			<div class="Header_RightMenu" id="pageElement_Header_RightMenu">
+				<img class="Header_RightMenu_Icon" src="Assets/Icons/icon_wifi_online.png" id="button_Wifi"/>
+			</div>
+		</div>
+	</header>
+	<header class="Page_Ribbon" id="pageElement_Ribbon">
+		<div class="Ribbon_TabContainer" id="Ribbon_Welcome">
+		</div>
+		<div class="Ribbon_TabContainer" id="Ribbon_FilterImages">
+			<div class="Ribbon_Item" onclick="Subwindows_Open('ImportImageList')">
+				<img class="Ribbon_Item_Icon" src="Assets/Icons/icon_download.png" />
+				<p class="Ribbon_Item_Text">
+					Import image list
+				</p>
+			</div>
+			<div class="Ribbon_Item" onclick="WA_FilterImages_ToggleFilterState()" id="WA_FilterImages_Ribbon_ToggleFilterState" style="display: none">
+				<img class="Ribbon_Item_Icon" src="Assets/Icons/icon_filter_add.png" />
+				<p class="Ribbon_Item_Text">
+					Include item to filter list
+				</p>
+			</div>
+			<div class="Ribbon_Item" onclick="Subwindows_Open('WA_Confirm_RemoveUnfiltered')" style="display: none">
+				<img class="Ribbon_Item_Icon" src="Assets/Icons/icon_filter_images.png" />
+				<p class="Ribbon_Item_Text">
+					Remove unfiltered images from list
+				</p>
+			</div>
+		</div>
+		<div class="Ribbon_TabContainer" id="Ribbon_ApplyWatermark">
+			<div class="Ribbon_Item" onclick="WA_ApplyWatermark()">
+				<img class="Ribbon_Item_Icon" src="Assets/Icons/icon_applyWatermark.png" />
+				<p class="Ribbon_Item_Text">
+					Apply Watermark
+				</p>
+			</div>
+			<div class="Ribbon_Item" onclick="Subwindows_Open('ChangeImage')">
+				<img class="Ribbon_Item_Icon" src="Assets/Icons/icon_image.png" />
+				<p class="Ribbon_Item_Text">
+					Change image
+				</p>
+			</div>
+			<div class="Ribbon_Item" onclick="Subwindows_Open('ChangeWatermark')">
+				<img class="Ribbon_Item_Icon" src="Assets/Icons/icon_image.png" />
+				<p class="Ribbon_Item_Text">
+					Change watermark
+				</p>
+			</div>
+		</div>
+		<div class="Ribbon_TabContainer" id="Ribbon_ProcessedImages">
+		</div>
+		<div class="Ribbon_TabContainer" id="Ribbon_BatchProcessing">
+		</div>
+	</header>
+	<div class="Page_Sidebar" id="pageElement_Sidebar">
+		<div class="Sidebar_Item" id="Welcome" onclick="trigger_ChangeTab_test(this.id)">
+			<img class="Sidebar_Item_Icon" id="tabIcon_Welcome" src="Assets/Icons/icon_home.png"/>
+			<p class="Sidebar_Item_Text">
+				Welcome
+			</p>
+			<!-- Specify the title of the tab that will be displayed in the header (must have pageelement_header_UsesTitles enabled) -->
+			<p class="Sidebar_Item_Text_forHeader"style="display: none" id="tabTitle_Welcome">
+				
+			</p>
+		</div>
+		<div class="Sidebar_Item" id="FilterImages" onclick="trigger_ChangeTab_test(this.id)" style="display: none">
+			<img class="Sidebar_Item_Icon" id="tabIcon_FilterImages" src="Assets/Icons/icon_filter_images.png"/>
+			<p class="Sidebar_Item_Text">
+				Filter Images
+			</p>
+			<!-- Specify the title of the tab that will be displayed in the header (must have pageelement_header_UsesTitles enabled) -->
+			<p class="Sidebar_Item_Text_forHeader" style="display: none" id="tabTitle_FilterImages">
+				Filter Images
+			</p>
+		</div>
+		<div class="Sidebar_Item" id="ApplyWatermark" onclick="trigger_ChangeTab_test(this.id), WA_ImportImage_Generate_ImageList_ApplyWatermark(), WA_Canvas_ChangeSize()" style="display: none">
+			<img class="Sidebar_Item_Icon" id="tabIcon_ApplyWatermark" src="Assets/Icons/icon_applyWatermark.png"/>
+			<p class="Sidebar_Item_Text">
+				Apply Watermark
+			</p>
+			<!-- Specify the title of the tab that will be displayed in the header (must have pageelement_header_UsesTitles enabled) -->
+			<p class="Sidebar_Item_Text_forHeader" style="display: none" id="tabTitle_ApplyWatermark">
+				Apply Watermark
+			</p>
+		</div>
+		<div class="Sidebar_Item" id="ProcessedImages" onclick="trigger_ChangeTab_test(this.id)" style="display: none">
+			<img class="Sidebar_Item_Icon" id="tabIcon_ProcessedImages" src="Assets/Icons/icon_output.png"/>
+			<p class="Sidebar_Item_Text">
+				Outputs
+			</p>
+			<!-- Specify the title of the tab that will be displayed in the header (must have pageelement_header_UsesTitles enabled) -->
+			<p class="Sidebar_Item_Text_forHeader" style="display: none" id="tabTitle_ProcessedImages">
+				Outputs
+			</p>
+		</div>
+		<div class="Sidebar_Item" id="BatchProcessing" onclick="trigger_ChangeTab_test(this.id), WA_ImportImage_Generate_ImageList_BatchProcessing()" style="display: none">
+			<img class="Sidebar_Item_Icon" id="tabIcon_BatchProcessing" src="Assets/Icons/icon_batchProcessing.png"/>
+			<p class="Sidebar_Item_Text">
+				Batch Processing
+			</p>
+			<!-- Specify the title of the tab that will be displayed in the header (must have pageelement_header_UsesTitles enabled) -->
+			<p class="Sidebar_Item_Text_forHeader" style="display: none" id="tabTitle_BatchProcessing">
+				Process multiple images
+			</p>
+		</div>
+	</div>
+	<main class="Page_Content" id="pageElement_Content" data-id="">
+		<div class="Page_MainContent" id="Page_MainContent" data-id="">
+			<div class="Tab_Container" id="tab_Welcome" style="display: flex; flex-direction: column;">
+				<h1 class="WA_Welcome_Title">
+					Welcome to Watermark Applier
+				</h1>
+				<p class="WA_Welcome_Subtitle">
+					Utility tool by ElmerF<br>Work-in-Progress; Design and functionality will change.<br> Bugs WILL occur.
+				</p>
+				<div class="General_Button" style="margin-bottom: 10px; width: 75%; align-self: center;" onclick="Subwindows_Open('Projects_CreateProject'), WA_Projects_CheckFileAvailability('NewProject')">
+					Create new project
+				</div>
+				<div class="WA_Welcome">
+					<div class="WA_Welcome_RecentProjects">
+						<h3 class="WA_Welcome_Section_Title">
+							Projects
+						</h3>
+						<div id="WA_Welcome_ProjectList_List">
+							<p class="General_Paragraph">
+								No projects yet.
+							</p>
+						</div>
+					</div>
+					<!-- <div class="WA_Welcome_Documentation">
+						<h3 class="WA_Welcome_Section_Title">
+							Learn more
+						</h3>
+						<p class="WA_Welcome_Section_Item">
+							How to use
+						</p>
+						<p class="WA_Welcome_Section_Item">
+							Documentation
+						</p>
+					</div> -->
+				</div>
+			</div>
+			<div class="Tab_Container" id="tab_FilterImages">
+				<div class="WA_FilterImages">
+					<div class="WA_FilterImages_ImageList">
+						<h3 class="WA_FilterImages_Title">
+							Images
+						</h3>
+						<div class="WA_FilterImages_ImageList_List" id="WA_FilterImages_ImageList_List">
+							<p class="WA_FilterImages_Text">
+								This list is currently empty. Click "Import image list" above to begin.
+							</p>
+							<!-- <div class="WA_FilterImages_ImageList_List_Item">
+								<img src="Assets/WA_Test_Image_2.png" class="WA_FilterImages_ImageList_List_Item_Image"/>
+								<p class="WA_FilterImages_ImageList_List_Item_Name">
+									Placeholder.png
+								</p>
+							</div> -->
+						</div>
+						<div class="WA_FilterImages_ImageList_LoaderBuffer" id="WA_FilterImages_ImageList_LoaderBuffer" onclick="WA_ImportImages_Generate_ImageList_FilterImages()" style="display: none">
+							<p class="WA_FilterImages_ImageList_LoaderBuffer_Text">
+								Load 12 more images
+							</p>
+							<div></div>
+							<!--<input type="text" class="Input_Text WA_FilterImages_ImageList_LoaderBuffer_Input" id="WA_FilterImages_ImageList_Settings_LoaderAmount_Input" value="12" placeholder="number"/>-->
+							<!--<p class="WA_FilterImages_ImageList_LoaderBuffer_Text">
+								more images
+							</p>-->
+							<div></div>
+						</div>
+					</div>
+					<div class="WA_FilterImages_PreviewImage">
+						<h3 class="WA_FilterImages_Title">
+							Preview
+						</h3>
+						<img src="Assets/WA_Test_Image_2.png" class="WA_FilterImages_PreviewImage_Preview" id="WA_FilterImages_PreviewImage_Preview" onerror="this.style.display = 'none'"/>
+						<p class="WA_FilterImages_PreviewImage_FileName" id="WA_FilterImages_PreviewImage_FileName">
+							Placeholder.png
+						</p>
+						<div class="WA_FilterImages_PreviewImage_Controls">
+							<img src="Assets/Icons/icon_leftArrow.png" class= "WA_FilterImages_PreviewImage_Controls_Button" onclick="WA_FilterImages_ChangePreviewSource_Previous()"/>
+							<img src="Assets/Icons/icon_filter_add.png" class= "WA_FilterImages_PreviewImage_Controls_Button" onclick="WA_FilterImages_ToggleFilterState()"/>
+							<img src="Assets/Icons/icon_rightArrow.png" class= "WA_FilterImages_PreviewImage_Controls_Button" onclick="WA_FilterImages_ChangePreviewSource_Next()"/>
+						</div>
+					</div>
+					<div class="WA_FilterImages_FilteredImageList">
+						<h3 class="WA_FilterImages_Title">
+							Filtered images
+						</h3>
+						<p class="WA_FilterImages_Text" id="WA_FilterImages_FilteredImageList_EmptyListIndicator">
+							This list is currently empty. Click the "Add" icon above on the image you want to add to the filtered list.
+						</p>
+						<div class="WA_FilterImages_FilteredImageList_List" id="WA_FilterImages_FilteredImageList_List">
+							<!-- <div class="WA_FilterImages_FilteredImageList_List_Item">
+								Placeholder.png
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="Tab_Container" id="tab_ApplyWatermark">
+				<div class="WA_ApplyWatermark">
+					<div class="WA_ApplyWatermark_Side_1">
+						<div class="WA_ApplyWatermark_Settings">
+							<div class="General_Button" onclick="WA_Settings_ChangeTab('Output')">
+								Output settings
+							</div>
+							<div class="General_Button" onclick="WA_Settings_ChangeTab('Image')">
+								Image settings
+							</div>
+							<div class="General_Button" onclick="WA_Settings_ChangeTab('Watermark')">
+								Watermark settings
+							</div>
+							<div id="WA_ApplyWatermark_Settings_Tab_Output">
+								<h3 class="WA_ApplyWatermark_Title">
+									Output settings
+								</h3>
+								<h4 class="WA_ApplyWatermark_Settings_Title">
+									Output image
+								</h4>
+								<div class="Toggle WA_ApplyWatermark_Settings_Input_Toggle" id="WA_ApplyWatermark_Settings_DownloadAfterGeneration_Input" onclick="toggle_Button(this.id)">
+									<div class="Toggle_Indicator" data-id="Toggle_Activated"></div>
+									Download image after generation
+								</div>
+								<div class="Toggle WA_ApplyWatermark_Settings_Input_Toggle" id="WA_ApplyWatermark_Settings_GoToNextImageAfterGeneration_Input" onclick="toggle_Button(this.id)">
+									<div class="Toggle_Indicator" data-id="Toggle_Activated"></div>
+									Go to next image after generation
+								</div>
+								<div class="WA_ApplyWatermark_Settings_Container">
+									<label for="WA_ApplyWatermark_Settings_ResolutionScale_Input" class="WA_ApplyWatermark_Settings_Text">
+										Resolution multiplier
+									</label>
+									<input type="number" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Enter a number" id="WA_ApplyWatermark_Settings_ResolutionScale_Input" value="1" min="1" max="100" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+								</div>
+								<h3 class="WA_ApplyWatermark_Title">
+									Preview settings
+								</h3>
+								<h4 class="WA_ApplyWatermark_Settings_Title">
+									Gridlines
+								</h4>
+								<div class="Toggle WA_ApplyWatermark_Settings_Input_Toggle" id="WA_ApplyWatermark_Settings_EnablePreviewGridlines_Input" onclick="toggle_Button(this.id), WA_ApplyWatermark_Settings_ApplyChanges()">
+									<div class="Toggle_Indicator" data-id="Toggle_Activated"></div>
+									Enable gridlines
+								</div>
+							</div>
+							<div id="WA_ApplyWatermark_Settings_Tab_Image">
+								<h3 class="WA_ApplyWatermark_Title">
+									Image settings
+								</h3>
+								<h4 class="WA_ApplyWatermark_Settings_Title">
+									Image position
+								</h4>
+								<div class="WA_ApplyWatermark_Settings_Container">
+									<label for="WA_ApplyWatermark_Settings_ImageOffset_Input_Vertical" class="WA_ApplyWatermark_Settings_Text">
+										Vertical offset
+									</label>
+									<input type="text" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Top" id="WA_ApplyWatermark_Settings_ImageOffset_Input_Vertical" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+	
+									<label for="WA_ApplyWatermark_Settings_WatermarkPosition_Input_Bottom" class="WA_ApplyWatermark_Settings_Text">
+										Horizontal offset
+									</label>
+									<input type="text" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Bottom" id="WA_ApplyWatermark_Settings_ImageOffset_Input_Horizontal" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+								</div>
+								<h4 class="WA_ApplyWatermark_Settings_Title">
+									Image scale
+								</h4>
+								<div class="WA_ApplyWatermark_Settings_Container">
+									<label for="WA_ApplyWatermark_Settings_ImageScale_Input" class="WA_ApplyWatermark_Settings_Text">
+										Scale 
+									</label>
+									<input type="number" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Width" id="WA_ApplyWatermark_Settings_ImageScale_Input" value="1" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+								</div>
+								<h4 class="WA_ApplyWatermark_Settings_Title">
+									Image filters
+								</h4>
+								<div class="WA_ApplyWatermark_Settings_Container">
+									<label for="WA_ApplyWatermark_Settings_ImageBrightness_Input" class="WA_ApplyWatermark_Settings_Text">
+										Brightness
+									</label>
+									<input type="number" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Width" id="WA_ApplyWatermark_Settings_ImageBrightness_Input" value="1" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+									<label for="WA_ApplyWatermark_Settings_ImageContrast_Input" class="WA_ApplyWatermark_Settings_Text">
+										Contrast
+									</label>
+									<input type="number" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Width" id="WA_ApplyWatermark_Settings_ImageContrast_Input" value="1" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+								</div>
+							</div>
+							
+							<div id="WA_ApplyWatermark_Settings_Tab_Watermark">
+								<h3 class="WA_ApplyWatermark_Title">
+									Watermark settings
+								</h3>
+								<h4 class="WA_ApplyWatermark_Settings_Title">
+									Watermark position
+								</h4>
+								<div class="WA_ApplyWatermark_Settings_Container">
+									<label for="WA_ApplyWatermark_Settings_WatermarkPosition_Input_Top" class="WA_ApplyWatermark_Settings_Text">
+										Top
+									</label>
+									<input type="text" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Top" id="WA_ApplyWatermark_Settings_WatermarkPosition_Input_Top" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+	
+									<label for="WA_ApplyWatermark_Settings_WatermarkPosition_Input_Bottom" class="WA_ApplyWatermark_Settings_Text">
+										Bottom
+									</label>
+									<input type="text" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Bottom" id="WA_ApplyWatermark_Settings_WatermarkPosition_Input_Bottom" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+	
+									<label for="WA_ApplyWatermark_Settings_WatermarkPosition_Input_Left" class="WA_ApplyWatermark_Settings_Text">
+										Left
+									</label>
+									<input type="text" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Left" id="WA_ApplyWatermark_Settings_WatermarkPosition_Input_Left" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+	
+									<label for="WA_ApplyWatermark_Settings_WatermarkPosition_Input_Right" class="WA_ApplyWatermark_Settings_Text">
+										Right
+									</label>
+									<input type="text" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Right" id="WA_ApplyWatermark_Settings_WatermarkPosition_Input_Right" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+								</div>
+								<h4 class="WA_ApplyWatermark_Settings_Title">
+									Watermark size
+								</h4>
+								<div class="WA_ApplyWatermark_Settings_Container">
+									<label for="WA_ApplyWatermark_Settings_WatermarkWidth_Input" class="WA_ApplyWatermark_Settings_Text">
+										Width 
+									</label>
+									<input type="text" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Width" id="WA_ApplyWatermark_Settings_WatermarkWidth_Input" value="100%" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+									<label for="WA_ApplyWatermark_Settings_WatermarkHeight_Input" class="WA_ApplyWatermark_Settings_Text">
+										Height
+									</label>
+									<input type="text" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Height" id="WA_ApplyWatermark_Settings_WatermarkHeight_Input" value="100%" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+								</div>
+								<h4 class="WA_ApplyWatermark_Settings_Title">
+									Watermark opacity
+								</h4>
+								<div class="WA_ApplyWatermark_Settings_Container">
+									<label for="WA_ApplyWatermark_Settings_WatermarkOpacity_Input" class="WA_ApplyWatermark_Settings_Text">
+										Opacity 
+									</label>
+									<input type="number" class="Input_Text WA_ApplyWatermark_Settings_Input" placeholder="Opacity" id="WA_ApplyWatermark_Settings_WatermarkOpacity_Input" value="100" min="0" max="100" oninput="WA_ApplyWatermark_Settings_ApplyChanges()"/>
+								</div>	
+							</div>
+											
+						</div>
+						<div class="WA_ApplyWatermark_FileList">
+							<h3 class="WA_ApplyWatermark_Title">
+								Image list
+							</h3>
+							<div class="WA_ApplyWatermark_FileList_List" id="WA_ApplyWatermark_FileList_List">
+								<p class="WA_ApplyWatermark_FileList_List_Item">
+									Placeholder.png
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="WA_ApplyWatermark_Side_2">
+						<div class="WA_ApplyWatermark_Information">
+							<div class="WA_ApplyWatermark_Information_Controls">
+								<img src="Assets/Icons/icon_leftArrow.png" class= "WA_ApplyWatermark_Information_Controls_Button" onclick="WA_ApplyWatermark_ChangeSource_Image_Previous()"/>
+								<p class="WA_ApplyWatermark_Information_Controls_Text" id="WA_ApplyWatermark_Information_Controls_Text">
+									1 / 1
+								</p>
+								<img src="Assets/Icons/icon_rightArrow.png" class= "WA_ApplyWatermark_Information_Controls_Button" onclick="WA_ApplyWatermark_ChangeSource_Image_Next()"/>
+							</div>
+							<h3 class="WA_ApplyWatermark_Information_FileName" id="WA_ApplyWatermark_Information_FileName">
+								Placeholder.png
+							</h3>
+						</div>
+						<div class="WA_ApplyWatermark_Canvas" id="WA_ApplyWatermark_Canvas">
+							<div class="WA_ApplyWatermark_Canvas_Container" id="WA_ApplyWatermark_Canvas_Container">
+								<div class="WA_ApplyWatermark_Canvas_Border">
+									<div class="WA_ApplyWatermark_Canvas_Border_Slice"></div>
+									<div class="WA_ApplyWatermark_Canvas_Border_Slice"></div>
+									<div class="WA_ApplyWatermark_Canvas_Border_Slice"></div>
+									<div class="WA_ApplyWatermark_Canvas_Border_Slice"></div>
+									<div class="WA_ApplyWatermark_Canvas_Border_Slice"></div>
+									<div class="WA_ApplyWatermark_Canvas_Border_Slice"></div>
+									<div class="WA_ApplyWatermark_Canvas_Border_Slice"></div>
+									<div class="WA_ApplyWatermark_Canvas_Border_Slice"></div>
+									<div class="WA_ApplyWatermark_Canvas_Border_Slice"></div>
+								</div>
+								<img src="Assets/WA_Test_Image_2.png" class="WA_ApplyWatermark_Canvas_Image" id="WA_ApplyWatermark_Image" onload="console.log('Loaded')"/>
+								<img src="Assets/WA_Test_Watermark.png" class="WA_ApplyWatermark_Canvas_Watermark" id="WA_ApplyWatermark_Watermark"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="Tab_Container" id="tab_ProcessedImages">
+				<h3 class="WA_ProcessedImages_Title">
+					All the images processed goes into here. 
+				</h3>
+				<div class="WA_ProcessedImages" id="WA_ProcessedImages">
+
+				</div>
+			</div>
+			<div class="Tab_Container" id="tab_BatchProcessing">
+				<div class="WA_BatchProcessing">
+					<p class="General_Paragraph">
+						Batch processing lets you automatically apply watermarks to all the images in your file list. This is useful if you have a lot of photos you want to apply watermarks to. Make sure that your watermark styling is already configured before starting.
+					</p>
+					<div class="General_Button" onclick="WA_BatchProcessing_Start()">
+						Start batch processing
+					</div>
+				</div>
+				<div class="WA_BatchProcessing_List">
+					<div class="WA_BatchProcessing_List_Files">
+						<h3 class="WA_BatchProcessing_List_Title">
+							File list
+						</h3>
+						<div class="WA_BatchProcessing_List_Container" id="WA_BatchProcessing_List_Files">
+							<p class="WA_BatchProcessing_List_Item">
+								Placeholder.png
+							</p>
+						</div>
+					</div>
+					<div class="WA_BatchProcessing_List_Report">
+						<h3 class="WA_BatchProcessing_List_Title">
+							Report
+						</h3>
+						<div class="WA_BatchProcessing_List_Container" id="WA_BatchProcessing_List_Report">
+							<!-- <p class="WA_BatchProcessing_List_Report_Item" data-id="Started">
+								Processing job started
+							</p>
+							<p class="WA_BatchProcessing_List_Report_Item" data-id="Ongoing">
+								Processing in progress
+							</p>
+							<p class="WA_BatchProcessing_List_Report_Item" data-id="Completed">
+								Processing completed
+							</p>
+							<p class="WA_BatchProcessing_List_Report_Item" data-id="Cancelled">
+								Processing job cancelled
+							</p>
+							<p class="WA_BatchProcessing_List_Report_Item" data-id="Finished">
+								Processing job finished
+							</p> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer class="Page_Footer">
+				<h1 class="Footer_Text" id="pageElement_Footer_VersionTitle">
+					Doodle Launcher Release 1.0
+				</h1>
+				<img class="Footer_Image" src="Assets/Icons/favicon.png"/>
+				<h1 class="Footer_Text" id="pageElement_Footer_Copyright">
+					Copyright Content By ElmerF 2023
+				</h1>
+			</footer>
+		</div>
+
+
+	</main>
+</body>
+
+</html>

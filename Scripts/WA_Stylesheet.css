@@ -1,0 +1,647 @@
+.WA_Welcome{
+    margin: 0;
+    /* background-color: aquamarine; */
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    height: 80%;
+    width: 75%;
+    align-self: center;
+    margin: auto;
+    grid-gap: 15px;
+}
+
+.WA_Welcome_Title{
+    font-family: Raleway;
+    color: white;
+    /* margin: 0; */
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.WA_Welcome_Subtitle{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.WA_Welcome_RecentProjects{
+    /* background-color: blueviolet; */
+}
+
+.WA_Welcome_Documentation{
+    /* background-color: chocolate; */
+}
+
+.WA_Welcome_Section_Title{
+    font-family: Raleway;
+    color: white;
+    margin: 0;
+}
+
+.WA_Welcome_Section_Item{
+    font-family: Roboto;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: var(--Element-Transition-Delay);
+}
+
+.WA_Welcome_Section_Item:hover{
+    background-color: var(--BG-Color-Hover);
+}
+
+.WA_FilterImages{
+    width: 100%;
+    height: calc(100% - 20px);
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.WA_FilterImages_ImageList{
+    grid-area: 1 / 1 / 3 / 2;
+    /* background-color: aliceblue; */
+    resize: horizontal;
+    overflow-y: auto;
+    border-right-style: solid;
+    border-right-color: var(--Color-Dividers);
+    width: 800px;
+}
+
+.WA_FilterImages_ImageList_LoaderBuffer{
+    background-color: var(--BG-Color-Button-General);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: var(--Element-Transition-Delay);
+}
+
+.WA_FilterImages_ImageList_LoaderBuffer:hover{
+    background-color: var(--BG-Color-Button-General-Hover);
+}
+
+.WA_FilterImages_ImageList_LoaderBuffer_Text{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+}
+
+.WA_FilterImages_ImageList_LoaderBuffer_Input{
+    background-color: var(--BG-Color-Button-General);
+    width: 60px;
+    margin: 5px;
+    text-align: center;
+}
+
+.WA_FilterImages_PreviewImage{
+    grid-area: 1 / 2 / 2 / 3;
+    /* background-color: aquamarine; */
+    resize: vertical;
+    overflow: auto;
+    border-bottom-style: solid;
+    border-bottom-color: var(--Color-Dividers);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.WA_FilterImages_PreviewImage_Preview{
+    width: calc(100% - 50px);
+    align-self: center;
+}
+
+.WA_FilterImages_PreviewImage_FileName{
+    font-family: Roboto;
+    color: white;
+    text-align: center;
+    max-width: 90%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.WA_FilterImages_PreviewImage_Controls{
+    height: 50px;
+    width: 180px;
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-gap: 10px;
+    align-self: center;
+}
+
+.WA_FilterImages_PreviewImage_Controls_Button{
+    width: 30px;
+    padding: 10px;
+    align-self: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--Element-Transition-Delay);
+}
+
+.WA_FilterImages_PreviewImage_Controls_Button:hover{
+    background-color: var(--BG-Color-Button-General-Hover);
+}
+
+.WA_FilterImages_FilteredImageList{
+    grid-area: 2 / 2 / 3 / 3;
+    /* background-color: bisque; */
+    overflow-y: auto;
+}
+
+.WA_FilterImages_FilteredImageList_List{
+    /* background-color: blue; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    grid-gap: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.WA_FilterImages_FilteredImageList_List_Item{
+    font-family: Roboto;
+    color: white;
+    text-align: left;
+    padding: 5px;
+    /* background-color: yellow; */
+    user-select: none;
+    cursor: pointer;
+    /* transition: var(--Element-Transition-Delay); */
+}
+
+.WA_FilterImages_FilteredImageList_List_Item:hover{
+    background: var(--BG-Color-Button-General-Hover);
+}
+
+.WA_FilterImages_Title{
+    font-family: Raleway;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    text-align: left;
+    align-self: flex-start;
+}
+
+.WA_FilterImages_Text{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+
+}
+
+.WA_FilterImages_ImageList_List{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.WA_FilterImages_ImageList_List_Item{
+    width: 230px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: transparent;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.WA_FilterImages_ImageList_List_Item:hover{
+    border-color: var(--BG-Color-Hover);
+}
+
+.WA_FilterImages_ImageList_List_Item_Image{
+    /* width: 230px; */
+    height: 125px;
+    aspect-ratio: 16/9;
+}
+
+.WA_FilterImages_ImageList_List_Item_Name{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+    padding-top: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    height: 30px;
+}
+
+.WA_ApplyWatermark{
+    width: 100%;
+    height: calc(100%);
+    max-height: calc(100%);
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+.WA_ApplyWatermark_Title{
+    font-family: Raleway;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    text-align: left;
+    align-self: flex-start;
+}
+
+.WA_ApplyWatermark_Side_1{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: calc(100% - 16px);
+    max-height: calc(100% - 16px);
+    max-height: 1fr;
+    overflow-y: none;
+}
+
+.WA_ApplyWatermark_Side_2{
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    height: calc(100% - 16px);
+    /* padding: 5px; */
+}
+
+.WA_ApplyWatermark_Settings{
+    /* grid-area: 1 / 1 / 2 / 2; */
+    border-right-style: solid;
+    border-right-color: var(--Color-Dividers);
+    border-bottom-style: solid;
+    border-bottom-color: var(--Color-Dividers);
+    resize: vertical;
+    overflow: auto;
+    max-height: 100%;
+    max-width: 300px;
+}
+
+.WA_ApplyWatermark_Settings_Title{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+    padding: 10px;
+}
+
+.WA_ApplyWatermark_Settings_Text{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+    padding: 10px;
+}
+
+.WA_ApplyWatermark_Settings_Container{
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    width: calc(100% - 20px);
+    align-items: center;
+}
+
+.WA_ApplyWatermark_Settings_Input{
+    /* display: inline-block; */
+}
+
+.WA_ApplyWatermark_Settings_Input_Toggle{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+
+.WA_ApplyWatermark_FileList{
+    /* grid-area: 2 / 1 / 3 / 2; */
+    border-right-style: solid;
+    border-right-color: var(--Color-Dividers);
+    /* overflow-y: auto; */
+    min-height: 0;
+    max-width: 300px;
+    /* border-bottom-style: solid;
+    border-bottom-color: var(--Color-Dividers); */
+}
+
+.WA_ApplyWatermark_FileList_List{
+    display: flex;
+    flex-direction: column;
+    /* background-color: aliceblue; */
+    padding-left: 10px;
+    padding-right: 6px;
+    overflow-y: auto;
+    height: 100%;
+    min-height: 0;
+    max-height: 100%;
+    /* resize: vertical; */
+
+}
+
+.WA_ApplyWatermark_FileList_List_Item{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+    padding: 5px;
+    user-select: none;
+    cursor: pointer;
+    margin-top: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* max-width: 80%; */
+    /* height: 30px; */
+    /* background-color: aqua; */
+}
+
+.WA_ApplyWatermark_FileList_List_Item:hover{
+    background-color: var(--BG-Color-Button-General-Hover);
+}
+
+
+.WA_ApplyWatermark_Canvas{
+    /* grid-area: 1 / 2 / 2 / 3; */
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    border-bottom-style: solid;
+    border-bottom-color: var(--Color-Dividers);
+}
+
+.WA_ApplyWatermark_Canvas_Container{
+    width: 100%;
+    height: 100%;
+    outline: solid red;
+    position: relative;
+}
+
+.WA_ApplyWatermark_Canvas_Border{
+    position: absolute;
+    z-index: 50;
+    outline: solid rgba(0, 255, 179, 0);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    transition: var(--Element-Transition-Delay);
+}
+
+.WA_ApplyWatermark_Canvas_Border:hover{
+    outline: solid rgb(0, 255, 179);
+}
+
+.WA_ApplyWatermark_Canvas_Border_Slice{
+    outline: solid rgba(0, 255, 179, 0);
+    transition: var(--Element-Transition-Delay);
+}
+
+.WA_ApplyWatermark_Canvas_Border:hover > .WA_ApplyWatermark_Canvas_Border_Slice{
+    outline: solid rgba(0, 255, 179, 0.422);
+}
+
+.WA_ApplyWatermark_Canvas_Image{
+    /* width: 500px; */
+    width: 100%;
+    /* width: auto; */
+    /* height: 100%; */
+    position: absolute;
+    /* top: 0; */
+    transition: var(--Element-Transition-Delay);
+}
+
+.WA_ApplyWatermark_Canvas_Watermark{
+    /* width: 500px; */
+    width: 100%;
+    /* height: 100%; */
+    position: absolute;
+    bottom: 0;
+    /* top: 0; */
+    transition: var(--Element-Transition-Delay);
+    outline: solid rgba(255, 166, 0, 0);
+}
+
+.WA_ApplyWatermark_Canvas_Watermark:hover{
+    outline: solid orange;
+}
+
+.WA_ApplyWatermark_Information{
+    /* grid-area: 2 / 2 / 3 / 3; */
+    border-bottom-style: solid;
+    border-bottom-color: var(--Color-Dividers);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.WA_ApplyWatermark_Information_FileName{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+    max-width: 700px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.WA_ApplyWatermark_Information_Controls{
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.WA_ApplyWatermark_Information_Controls_Button{
+    width: 30px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: var(--Element-Transition-Delay);
+}
+
+.WA_ApplyWatermark_Information_Controls_Button:hover{
+    background-color: var(--BG-Color-Button-General-Hover);
+}
+
+.WA_ApplyWatermark_Information_Controls_Text{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+}
+
+.WA_ProcessedImages{
+    /* background-color: aliceblue; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.WA_ProcessedImages > img {
+    width: 550px;
+    margin: 10px;
+    outline: solid var(--BG-Color-Button-General);
+}
+
+.WA_ProcessedImages_Title{
+    font-family: Roboto;
+    color: white;
+    margin: 10px;
+}
+
+.WA_BatchProcessing_Progress{
+    /* width: 100%; */
+    padding: 10px;
+    /* background-color: aliceblue; */
+}
+
+.WA_BatchProcessing_Progress_Text{
+    margin: 0;
+    font-family: Roboto;
+    color: white;
+    text-align: center;
+}
+
+.WA_BatchProcessing_Progress_Bar{
+    margin-top: 10px;
+    background-color: var(--Accent-Color);
+    height: 5px;
+    width: 20%;
+    transition: var(--Element-Transition-Delay);
+}
+
+.WA_BatchProcessing{
+    /* width: 100%; */
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    align-items:  center;
+    grid-gap: 10px;
+}
+
+.WA_BatchProcessing_List{
+    height: auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.WA_BatchProcessing_List_Files{
+    overflow-y: auto;
+    resize: horizontal;
+    border-right: solid var(--Color-Dividers);
+    border-top: solid var(--Color-Dividers);
+    border-bottom: solid var(--Color-Dividers);
+    padding: 10px;
+}
+
+.WA_BatchProcessing_List_Title{
+    font-family: Raleway;
+    color: white;
+    margin: 0;
+}
+
+.WA_BatchProcessing_List_Container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    min-width: 250px;
+}
+
+.WA_BatchProcessing_List_Item{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+}
+
+.WA_BatchProcessing_List_Report{
+    overflow-y: auto;
+    border-top: solid var(--Color-Dividers);
+    border-bottom: solid var(--Color-Dividers);
+    padding: 10px;
+}
+
+.WA_BatchProcessing_List_Report_Item{
+    font-family: Roboto;
+    color: white;
+    margin: 0;
+    padding: 5px;
+}
+
+.WA_BatchProcessing_List_Report_Item[data-id="Started"]{
+    background-color: var(--Accent-Color-Hover);
+}
+
+.WA_BatchProcessing_List_Report_Item[data-id="Ongoing"]{
+    background-color: rgba(255, 208, 0, 0.233);
+}
+
+.WA_BatchProcessing_List_Report_Item[data-id="Completed"]{
+    background-color: rgba(0, 128, 0, 0.233);
+}
+
+.WA_BatchProcessing_List_Report_Item[data-id="Cancelled"]{
+    background-color: rgba(235, 109, 6, 0.233);
+}
+
+.WA_BatchProcessing_List_Report_Item[data-id="Finished"]{
+    background-color: var(--Accent-Color-Hover);
+}
+
+#WA_Projects_ProjectName_SaveProject_Info_FileAlreadyExists{
+    animation: FileAlreadyExists 3s ease-in-out 0s infinite;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#WA_Projects_ProjectName_EditProjectName_Info_FileAlreadyExists{
+    animation: FileAlreadyExists 3s ease-in-out 0s infinite;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#WA_Projects_New_Project_Reminder{
+    animation: FileAlreadyExists 3s ease-in-out 0s infinite;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#WA_Projects_ProjectName_CreateProject_Info_FileAlreadyExists, #WA_Projects_ProjectName_EditProjectName_Info_SameProjectName{
+    animation: FileAlreadyExists 3s ease-in-out 0s infinite;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@keyframes FileAlreadyExists{
+    0% {
+        background-color: rgba(255, 132, 18, 0);
+    }
+    50% {
+        background-color: rgba(255, 132, 18, 0.315);
+    }
+    100% {
+        background-color: rgba(255, 132, 18, 0);
+    }
+}

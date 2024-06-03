@@ -1,0 +1,41 @@
+{
+  "name": "watermark_applier",
+  "version": "1.0.0",
+  "description": "A utility tool to make applying watermarks in batches of images easier and faster.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElmerF5445/DoodleLauncher.git"
+  },
+  "keywords": [
+    "[\"watermark\"",
+    "\"image",
+    "processing\"]"
+  ],
+  "author": "Elmer Jr. G. Felisilda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElmerF5445/DoodleLauncher/issues"
+  },
+  "homepage": "https://github.com/ElmerF5445/DoodleLauncher#readme",
+  "dependencies": {
+    "dom-to-image": "^2.6.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "http-server": "^14.1.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.4.2",
+    "@electron-forge/maker-deb": "^6.4.2",
+    "@electron-forge/maker-rpm": "^6.4.2",
+    "@electron-forge/maker-squirrel": "^6.4.2",
+    "@electron-forge/maker-zip": "^6.4.2",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
+    "electron": "^27.0.0"
+  }
+}
