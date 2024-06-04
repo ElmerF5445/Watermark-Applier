@@ -1005,30 +1005,68 @@ function WA_Settings_ChangeTab(Tab){
 	document.getElementById("WA_ApplyWatermark_Settings_Tab_" + Tab).style.display = "block";
 }
 
+const canvas = document.getElementById('testCanvas');
 // let Images = [];
 function loadImages() {
 	WA_FileNameList_LinkMode = "NoPath";
 	const input = document.getElementById('file-input');
 	const files = input.files;
-	const photoGrid = document.getElementById('photo-grid');
+	
 
-	// Clear previous images
-	photoGrid.innerHTML = '';
-
-	// Loop through each selected file
-	for (const file of files) {
+	for (const file of files){
 		const reader = new FileReader();
+		reader.onload = function(event){
+			const originalImage = new Image();
+			originalImage.src = event.target.result;
+			originalImage.onload = function(){
+				const resizedImage = resizeImage(originalImage, 0.75);
+				const context = document.getElementById('testCanvas').getContext("2d");
+				document.getElementById('testCanvas').width = resizedImage.width;
+				document.getElementById('testCanvas').height = resizedImage.height;
+				context.drawImage(resizedImage, 0, 0);
 
-		reader.onload = function(e) {
-			// const img = document.createElement('img');
-			WA_FileNameList_Images.push(e.target.result);
-			// img.src = e.target.result;
-			// photoGrid.appendChild(img);
+				const imageData = document.getElementById('testCanvas').toDataURL("image/jpeg");
+				WA_FileNameList_Images.push(imageData);
+			}
 		};
-
 		reader.readAsDataURL(file);
 	}
+	// Loop through each selected file
+	// for (const file of files) {
+	// 	const reader = new FileReader();
+
+	// 	reader.onload = function(e) {
+	// 		// const img = document.createElement('img');
+	// 		WA_FileNameList_Images.push(e.target.result);
+	// 		// img.src = e.target.result;
+	// 		// photoGrid.appendChild(img);
+	// 	};
+
+	// 	reader.readAsDataURL(file, {resizeMode: 'contain', width: '1980px'});
+	// }
+
+
 	// WA_ImportImages_Generate_ImageList_FilterImages();
+}
+
+function resizeImage(image, percentage){
+	const canvas_element = document.createElement("canvas");
+	const context = canvas_element.getContext("2d");
+	const aspectRatio = image.width / image.height;
+
+	let newWidth =  image.width / percentage;
+	let newHeight = newWidth / aspectRatio;
+
+	// if (newHeight > document.getElementById('testCanvas').height){
+	// 	newHeight = document.getElementById('testCanvas').height;
+	// 	newWidth = newHeight * aspectRatio;
+	// }
+
+	canvas_element.width = newWidth;
+	canvas_element.height = newHeight;
+
+	context.drawImage(image, 0, 0, image.width, image.height, 0, 0, newWidth, newHeight);
+	return canvas_element;
 }
 
 function loadWatermarks() {
@@ -1050,7 +1088,7 @@ function loadWatermarks() {
 			// photoGrid.appendChild(img);
 		};
 
-		reader.readAsDataURL(file);
+		reader.readAsDataURL(file, {resizeMode: 'contain', width: '1980px'});
 	}
 	// WA_ImportImages_Generate_ImageList_FilterImages();
 }
